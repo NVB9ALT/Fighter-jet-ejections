@@ -11,6 +11,10 @@ if (geofs.aircraft.instance.id == 3 || geofs.aircraft.instance.id == 7 || geofs.
 if (geofs.animation.values.enginesOn == 0 && geofs.animation.values.groundContact == 0) {
 console.log("eject");
 setTimeout(() => {geofs.aircraft.instance.change(50);}, 2000);
+function checkInt() {
+ejectInt = setInterval(function(){++geofs.animation.values.eject})
+setTimeout(() => {clearInterval(ejectInt)},2000);
+}
 if (ejected == 0) {
    ui.notification.show("You ejected from your aircraft");
 	audio.impl.html5.playFile("https://138772948-227015667470610340.preview.editmysite.com/uploads/1/3/8/7/138772948/softtouch.mp3");
