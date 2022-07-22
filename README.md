@@ -5,5 +5,4 @@ This adds an implementation of ejection seats in fighter jets. If you turn the e
 This is a beta addon and there are still a few things I need to streamline; please keep that in mind. This will eventually be put in the realism addon.
 
 Planned features:
-- Cockpit canopy will be blown off when ejection is triggered </br>
-- Smoother ejection </br>
+- Camera animation
