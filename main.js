@@ -27,10 +27,10 @@ geofs.aircraft.instance.definition.parts.forEach(function(e){
 //0.0986
 var a = 1
 var b = 0
-b = b - (geofs.animation.values.aroll * 0.01)
+b = b - (geofs.animation.values.aroll * 0.001)
 function moveCamera() {
 a = a - 0.0986
-geofs.camera.translate(b, -5, a)
+geofs.camera.translate(b, 5, a)
 console.log(a)
 console.log(b)
 };
