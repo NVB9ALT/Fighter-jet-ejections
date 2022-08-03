@@ -1,3 +1,4 @@
+function runEjections() {
 var notifiedEject = new Boolean(0)
 geofs.animation.values.eject = 0
 var ejected = new Boolean(1);
@@ -46,3 +47,4 @@ geofs.animation.values.eject = 1
 	}
 };
 ejectionInterval = setInterval(function(){checkForEjections()}, 500);
+}
