@@ -38,18 +38,24 @@ geofs.aircraft.instance.definition.parts.forEach(function(e){
 	};
 });
 //0.0986 - gravitational constant, divided by 100 as the code it's for runs 100 times per second
-//starting ejection force
-var a = 1
-var b = 0 //sideways ejection force (if the aircraft is on its side when you eject, you should get ejected out the side, right?
-b = b - (geofs.animation.values.aroll * 0.001)
+//starting ejection force and roll angle compensation
+var a = 1 - ((geofs.animation.values.aroll + 90) * 0.001) 
+var b = 0 - (geofs.animation.values.aroll * 0.001) 
+var c = 0
+if (geofs.animation.values.trueKias != undefined) {
+   c = (geofs.animation.values.trueKias / 150)
+} else {
+   c = (geofs.animation.values.kias / 150)
+}
 function moveCamera() {
 //gravity pulling the camera down
 a = a - 0.0986
-//teleoprt the camera to the new calculated location - every ten ms
-geofs.camera.translate(b, 5, a)
-//log the two values for debugging
+//teleport the camera to the new calculated location - every ten ms
+geofs.camera.translate(b, c, a)
+//log the values for debugging
 console.log(a)
 console.log(b)
+console.log(c)
 };
 //moving the camera
 moveCameraInterval = setInterval(function(){moveCamera()},10)
