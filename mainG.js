@@ -16,6 +16,10 @@ notifiedEject = 1
 //if you've turned the engines off, haven't ejected, and are airborne
 if (geofs.animation.values.enginesOn == 0 && geofs.animation.values.groundContact == 0 && ejected == 0) {
 console.log("eject");
+//cockpit camera animation?
+if (geofs.camera.currentModeName == "cockpit") {
+   geofs.camera.set(0)
+}
 //with "ejected" set to true, the code inside the "if" statement only executes once
 ejected = 1
 //setting the animation value for the canopy animation
